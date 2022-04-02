@@ -2,7 +2,45 @@
 #include <vector>
 
 int main() {
-    
+    int fork[2][6] = {{1, 1, 1, 1, 1, 1},
+                      {1, 1, 1, 1, 1, 1}};
+    int spoon[2][6] = {{1, 1, 1, 1, 1, 2},
+                       {1, 1, 1, 1, 1, 2}};
+    int knife[2][6] = {{1, 1, 1, 1, 1, 1},
+                       {1, 1, 1, 1, 1, 1}};
+    int plate[2][6] = {{2, 2, 2, 2, 2, 3},
+                       {2, 2, 2, 2, 2, 3}};
+    int chair[2][6] = {{1, 1, 1, 1, 1, 1},
+                       {1, 1, 1, 1, 1, 1}};
+    chair[0][4] += 1;
+    spoon[1][2] -= 1;
+    spoon[0][5] -= 1;
+    spoon[1][2] += 1;
+    plate[0][5] -= 1;
+    std::cout << "Chairs:";
+    std::cout << std::endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 6; j++) {
+            std::cout << chair[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << "Spoons:";
+    std::cout << std::endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 6; j++) {
+            std::cout << spoon[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << "Plates:";
+    std::cout << std::endl;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 6; j++) {
+            std::cout << plate[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
 }
 
 /*
