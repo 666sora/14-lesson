@@ -1,8 +1,51 @@
 #include <iostream>
 #include <vector>
 
+bool initial(bool poopyrka[][12]) {
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            poopyrka[i][j] = true;
+        }
+    }
+    return poopyrka;
+}
+
+void showPoopyrka(bool poopyrka[][12]) {
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            std::cout << (poopyrka[i][j] == true ? "o" : "x") << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 int main() {
-    
+    bool poopyrka[12][12];
+    initial(poopyrka);
+    showPoopyrka(poopyrka);
+    for (int i = 0; i < 144; i++) {
+        int x, y;
+        bool correct = true;
+        do {
+            do {
+                std::cout << "Input x: ";
+                std::cin >> x;
+                correct = (x >= 0 && x < 12 ? true : false);
+                if (!correct) std::cout << "Invalid input" << std::endl;
+            } while (!correct);
+            do {
+                std::cout << "Input y: ";
+                std::cin >> y;
+                correct = (y >= 0 && y < 12 ? true : false);
+                if (!correct) std::cout << "Invalid input" << std::endl;
+            } while (!correct);
+            correct = (poopyrka[y][x] == true ? true : false);
+            if (!correct) std::cout << "Invalid input" << std::endl;
+        } while (!correct);
+        poopyrka[y][x] = false;
+        showPoopyrka(poopyrka);
+        std::cout << "Pop!" << std::endl;
+    }
 }
 
 /*
