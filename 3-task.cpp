@@ -2,7 +2,25 @@
 #include <vector>
 
 int main() {
-    
+    int array[5][5];  // 0  1  2  3  4 | i = 0     
+    int counter = 1;  // 4  3  2  1  0 | i = 1
+    int j = -1;       // 0  1  2  3  4 | i = 2 
+                      // 4  3  2  1  0 | i = 3
+                      // 0  1  2  3  4 | i = 4
+    for (int i = 0; i < 5; i++) {
+        j += counter;
+        for (; j < 5 && j != -1; j += counter) {
+            std::cout << "Input number: ";
+            std::cin >> array[i][j];
+        }
+        counter = -counter;
+    }
+    for (int i = 0; i < 5; i++) {
+        for (int k = 0; k < 5; k++) {
+            std::cout << array[i][k] << "\t";
+        }
+        std::cout << std::endl;
+    }
 }
 
 /*
