@@ -2,8 +2,31 @@
 #include <vector>
 
 int main() {
-    
-}
+    int matrix[4][4];
+    std::vector<int> vec(4);
+    std::cout << "Matrix:" << std::endl;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            std::cout << "Input number: ";
+            std::cin >> matrix[i][j];
+        }
+    }
+    std::cout << "Vector:" << std::endl;
+    for (int i = 0; i < 4; i++) {
+        std::cout << "Input number: ";
+        std::cin >> vec[i];
+    }
+    std::vector<int> vecResult(4);
+    std::cout << "Result vector is" << std::endl;
+    for (int i = 0; i < 4; i++) {
+        int temp = 0;
+        for (int j = 0; j < 4; j++) {
+            temp += matrix[i][j] * vec[j];
+        }
+        vecResult[i] = temp;
+        std::cout << vecResult[i] << std::endl;
+    }
+} 
 /*
 Реализуйте частный случай умножения матрицы на матрицу, а именно
 — умножение вектора на матрицу. Данная операция также весьма распространена
