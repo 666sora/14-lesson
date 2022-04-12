@@ -23,28 +23,49 @@ int main() {
     bool poopyrka[12][12];
     initial(poopyrka);
     showPoopyrka(poopyrka);
-    for (int i = 0; i < 144; i++) {
-        int x, y;
+    for (int i = 0; i < 144;) {
+        int x1, y1, x2, y2;
         bool correct = true;
         do {
             do {
-                std::cout << "Input x: ";
-                std::cin >> x;
-                correct = (x >= 0 && x < 12 ? true : false);
+                std::cout << "Input x1: ";
+                std::cin >> x1;
+                correct = (x1 >= 0 && x1 < 12 ? true : false);
                 if (!correct) std::cout << "Invalid input" << std::endl;
             } while (!correct);
             do {
-                std::cout << "Input y: ";
-                std::cin >> y;
-                correct = (y >= 0 && y < 12 ? true : false);
+                std::cout << "Input y1: ";
+                std::cin >> y1;
+                correct = (y1 >= 0 && y1 < 12 ? true : false);
                 if (!correct) std::cout << "Invalid input" << std::endl;
             } while (!correct);
-            correct = (poopyrka[y][x] == true ? true : false);
+            correct = (poopyrka[y1][x1] == true ? true : false);
             if (!correct) std::cout << "Invalid input" << std::endl;
         } while (!correct);
-        poopyrka[y][x] = false;
+        do {
+            do {
+                std::cout << "Input x2: ";
+                std::cin >> x2;
+                correct = (x2 >= 0 && x2 < 12 ? true : false);
+                if (!correct) std::cout << "Invalid input" << std::endl;
+            } while (!correct);
+            do {
+                std::cout << "Input y2: ";
+                std::cin >> y2;
+                correct = (y2 >= 0 && y2 < 12 ? true : false);
+                if (!correct) std::cout << "Invalid input" << std::endl;
+            } while (!correct);
+            correct = (poopyrka[y2][x2] == true ? true : false);
+            if (!correct) std::cout << "Invalid input" << std::endl;
+        } while (!correct);
+        for (int k = y1; k <= y2; k++) {
+            for (int j = x1; j <= x2; j++) {
+                poopyrka[k][j] = false;
+                std::cout << "Pop!" << std::endl;
+                i++;
+            }
+        }
         showPoopyrka(poopyrka);
-        std::cout << "Pop!" << std::endl;
     }
 }
 
